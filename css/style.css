@@ -17,3 +17,15 @@ h1 {
   color: red;
   margin-bottom: 30px;
 }
+
+.button {
+  margin-top: 20px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
