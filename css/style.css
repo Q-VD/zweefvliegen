@@ -13,6 +13,11 @@ header {
   text-align: center;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
 h1 {
   color: red;
   margin-bottom: 30px;
@@ -28,4 +33,14 @@ h1 {
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.site-header {
+  display: flex;
+  align-items: flex-start; /* boven uitlijnen, zodat titel boven knoppen komt */
+  gap: 20px;
+  padding: 20px;
+  background-color: #003366; 
+  border-radius: 12px;
+  flex-wrap: wrap;
 }
