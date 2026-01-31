@@ -1,6 +1,12 @@
 //logbook
 import { db } from "./firebase.js";
-import {collection, addDoc, getDocs, doc} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {collection, addDoc, getDocs, doc, setDocs} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+//functie voor string omzetten naar minuten
+function getMinutes(timeStr) {
+  const [h, m] = timeStr.split(":").map(Number);
+  return h * 60 + m;
+}
 
 // voeg vlucht toe
 document.getElementById("add").addEventListener("click", async () => {
@@ -8,7 +14,7 @@ document.getElementById("add").addEventListener("click", async () => {
   const date = document.getElementById("date").value.trim();
   const startTime = document.getElementById("startTime").value.trim();
   const landingTime = document.getElementById("landingTime").value.trim();
-  const duration = landingTime - startTime;
+  const duration = getMinutes(landingTime) - getMinutes(startTime);
   const startLocation = document.getElementById("startLocation").value.trim();
   const landingLocation = document.getElementById("landingLocation").value.trim();
   const frontSeat = document.getElementById("frontSeat").value.trim();
@@ -17,7 +23,7 @@ document.getElementById("add").addEventListener("click", async () => {
 
   if (!date || !startTime || !landingTime || !startLocation || !landingLocation || ! frontSeat) {
     alert("Vul datum, start- en land tijd en locatie en de inzittende in!");
-    return();
+    return;
   }
 
   const docId = flightNumber;
@@ -26,9 +32,9 @@ document.getElementById("add").addEventListener("click", async () => {
   let x = 0;
   
   await setDoc(docRef, {
-    flightNumber: "Vlucht" + (++x),
+    flightNumber: flightNumber,
     Date: date,
-    StartTime: starttime,
+    StartTime: startTime,
     LandingTime: landingTime,
     Duration: duration,
     StartLocation: startLocation,
@@ -58,7 +64,7 @@ async function loadFlights() {
   const flightslist =  document.getElementById("flightslist");
   flightslist.innerHTML = "";
 
-  const querySnapshot = await getDocs(collection(db, "Lofbook"));
+  const querySnapshot = await getDocs(collection(db, "Logbook"));
   querySnapshot.forEach((docSnap) => {
     const data = docSnap.data();
     const btn = document.createElement("button");
