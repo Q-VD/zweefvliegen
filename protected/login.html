@@ -10,7 +10,11 @@
     
     <p>Welkom op de login pagina van Zweefpiloot, op deze pagina kan een gebruiker in loggen.</p>
 
-    <a href="/zweefvliegen/protected/dashboard.html"><button>Aanmelden</button></a>
+    <input type="email" id="email" placeholder="E-mail" required>
+    <input type="password" id="password" placeholder="Wachtwoord" required>
+    <button id="loginBtn">Aanmelden</button>
+
+    <p id="error" style="color: red;"></p>
     
     <p>Bent u nog geen gebruiker, dan kan u zich registreren via de knop hieronder.</p>
     
@@ -23,5 +27,7 @@
     </footer>
 
     <script src="/zweefvliegen/includes/header/head.js"></script>
+    
+    <script type="module" src="/zweefvliegen/includes/firebase/auth.js"></script>
   </body>
 </html>
