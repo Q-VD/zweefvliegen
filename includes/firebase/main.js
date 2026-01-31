@@ -1,6 +1,6 @@
 //logbook
 import { db } from "./firebase.js";
-import {collection, addDoc, getDocs, doc, setDocs} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {collection, addDoc, getDocs, doc, setDoc} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 //functie voor string omzetten naar minuten
 function getMinutes(timeStr) {
