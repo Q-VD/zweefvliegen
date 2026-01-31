@@ -10,7 +10,7 @@ import {
 let x = 0;
 
 document.getElementById("add").addEventListener("click", async () => {
-  const docId = "Note" + (++x);
+  const docId = "Note " + (++x);
 
   const docRef = doc(db, "Notes", docId);
   
@@ -20,5 +20,5 @@ document.getElementById("add").addEventListener("click", async () => {
     created: Date.now()
   });
 
-  console.log("Notitie toegevoegd  met ID", docId);
+  console.log("Notitie toegevoegd  met ID ", docId);
 });
