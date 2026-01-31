@@ -11,7 +11,53 @@
     <p>Hier komt een tabel met al u vluchten.</p>
     <p>Vluchtnummer; Datum; Tijden: Start, landing, duur; locatie: start, landing; Inzittende: voorste (PIC), Achterste(passagier, FI); Opmerking</p>
 
-    <button id="add">Voeg data toe</button>
+    <h2>Vlucht invoeren</h2>
+
+    <label for="Date">Datum:</label>
+    <input type="text" id="Date" placeholder="dd/mm/yyyy"/>
+
+    <br/><br/>
+
+    <label for="StartTime">Start tijd:</label>
+    <input type="text" id="StartTime" placeholder="uur:min"/>
+
+    <br/><br/>
+
+    <label for="LandingTime">Landing tijd:</label>
+    <input type="text" id="LandingTime" placeholder="uur:min"/>
+
+    <br/><br/>
+
+    <h3>Locatie</h3>
+    <label for="StartLocation">Start:</label>
+    <input type="text" id="StartLocation" placeholder="ICAO code"/>
+
+    <br/><br/>
+
+    <label for="LandingLocation">Landing:</label>
+    <input type="text" id="LandingLocation" placeholder="ICAO code"/>
+
+    <br/><br/>
+
+    <h3>Inzittende</h3>
+    <label for="FrontSeat">Voorste zit:</label>
+    <input type="text" id="FrontSeat" placeholder="naam"/>
+
+    <br/><br/>
+
+    <label for="BackSeat">Achterste zit:</label>
+    <input type="text" id="BackSeat" placeholder="naam"/>
+
+    <br/><br/>
+
+    <label for="Remark">Opmerking:</label>
+    <textarea id="Remark" placeholder="Schrijf hier je opmerking"></textarea>
+
+    <br/><br/>
+
+    <h2>Vluchten overzicht</h2>
+
+    <div id="flightslist"></div>
 
     <footer>
       <div class="copyright">
