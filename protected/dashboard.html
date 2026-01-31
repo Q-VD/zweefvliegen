@@ -37,8 +37,11 @@
       onAuthStateChanged(auth, (user) => {
         if (!user) {
           window.location.href = "login.html";
-        });
+        }
+      });
     </script>
 
     <script src="/zweefvliegen/includes/header/head2.js"></script>
+
+    <script type="module" src="/zweefvliegen/includes/firebase/auth.js"></script>
 </html>
