@@ -22,13 +22,12 @@ document.getElementById("add").addEventListener("click", async () => {
   return;
   }
 
-  const docId = generateDocId(title);
+  const docId = title;
   const docRef = doc(db, "Notes", docId);
 
   await setDoc(docRef, {
     Title: title,
     message: message,
-    created: Date.now()
   });
 
   console.log("Notitie toegevoegd met ID: ", docId);
