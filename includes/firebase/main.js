@@ -4,7 +4,7 @@ import {collection, addDoc, getDocs, doc} from "https://www.gstatic.com/firebase
 
 // voeg vlucht toe
 document.getElementById("add").addEventListener("click", async () => {
-  const title = document.getElementById("title").value.trim();
+  const flightNumber = document.getElementById("title").value.trim();
   const date = document.getElementById("date").value.trim();
   const startTime = document.getElementById("startTime").value.trim();
   const landingTime = document.getElementById("landingTime").value.trim();
@@ -20,11 +20,13 @@ document.getElementById("add").addEventListener("click", async () => {
     return();
   }
 
-  const docId = title;
+  const docId = flightNumber;
   const docRef = doc(db, "Logbook", docId);
+
+  let x = 0;
   
   await setDoc(docRef, {
-    Title: title,
+    flightNumber: "Vlucht" + (++x),
     Date: date,
     StartTime: starttime,
     LandingTime: landingTime,
