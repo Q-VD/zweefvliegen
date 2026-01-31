@@ -2,14 +2,17 @@
 <html lang="nl">
   <head>
     <meta charset="utf-8">
-    <title>Voorbeeld notitie Zweefpiloot</title>
+    <title>Notitie Zweefpiloot</title>
     <link rel="stylesheet" href="/zweefvliegen/css/style.css"/>
   </head>
-  <body data-title="Voorbeeld notitie">
+  <body data-title=(id="noteTitle")>
     <div id="header-placeholder"></div>
 
-    <p></p>
+    <p id="noteMessage"></p>
+    <p><em id="noteDate"></em></p>
 
+    <a href="notes.html">Terug naar notitie overzicht</a>
+    
     <footer>
       <div class="copyright">
         &copy; 2026 Zweefpiloot. Alle rechten voorbehouden.
@@ -17,4 +20,7 @@
     </footer>
 
     <script src="/zweefvliegen/includes/header/head2.js"></script>
+
+    <script type="module" src="/zweefvliegen/includes/firebase/main2.js"></script>
+  </body>
 </html>
