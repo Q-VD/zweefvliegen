@@ -28,5 +28,17 @@
       </div>
     </footer>
 
+    <script type="module">
+      import { getAuth, onAuthStateChanged } 
+      from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+      
+      const auth = getAuth();
+      
+      onAuthStateChanged(auth, (user) => {
+        if (!user) {
+          window.location.href = "login.html";
+        });
+    </script>
+
     <script src="/zweefvliegen/includes/header/head2.js"></script>
 </html>
