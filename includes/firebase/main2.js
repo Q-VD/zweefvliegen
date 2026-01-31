@@ -31,6 +31,6 @@ document.getElementById("add").addEventListener("click", async () => {
     created: Date.now()
   });
 
-  console.log("Notitie toegevoegd met ID: ", docID);
+  console.log("Notitie toegevoegd met ID: ", docId);
 
 });
