@@ -30,7 +30,7 @@ document.getElementById("add").addEventListener("click", async () => {
   console.log("Notitie toegevoegd met ID: ", docId);
 
   //invoervelden leeg maken
-  document.getElementById("Title").value = "";
+  document.getElementById("title").value = "";
   document.getElementById("message").value = "";
 
   loadNotes(); //lijst maken
