@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "/zweefvliegen/dashboard.html";
+      window.location.href = "/zweefvliegen/protected/dashboard.html";
     } catch (err) {
       errorEl.textContent = "Ongeldige inloggegevens";
       console.error(err.code);
