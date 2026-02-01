@@ -1,6 +1,6 @@
 //logbook
 import { db } from "./firebase.js";
-import {collection, addDoc, getDocs, doc, setDoc, runTransaction} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {collection, getDocs, doc, runTransaction} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 //functie voor string omzetten naar minuten
 function getMinutes(timeStr) {
@@ -41,7 +41,7 @@ document.getElementById("add").addEventListener("click", async () => {
     //nieuw logbookdocument
     const flightRef = doc(db, "Logbook", newId.toString());
 
-    transacation.set(flightRef, {
+    transaction.set(flightRef, {
       flightNumber: newId,
       Date: date,
       StartTime: startTime,
