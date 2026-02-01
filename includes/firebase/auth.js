@@ -1,16 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import { app } from "./firebase.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBxf7yVlaa3vWvweKZ3acsK0o_GpGUCuVE",
-  authDomain: "zweefvliegen-45079.firebaseapp.com",
-  projectId: "zweefvliegen-45079",
-  appId: "1:833199799502:web:4b6009d9ee21a818b1649f"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+// auth.js
+import { auth } from "./firebase.js"; // gebruik de gedeclareerde auth
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const loginBtn = document.getElementById("loginBtn");
