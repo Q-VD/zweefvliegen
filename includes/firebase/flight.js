@@ -11,7 +11,7 @@ if (docId) {
 
   if (docSnap.exists()) {
     const data = docSnap.data();
-    document.getElementById("flightNumber").textContent = data.flightNumber;
+    document.getElementById("flightNumber").textContent = `Vluchtnummer ${data.flightNumber}`;
     document.getElementById("Date").textContent = data.Date;
     document.getElementById("StartTime").textContent = data.StartTime;
     document.getElementById("LandingTime").textContent = data.LandingTime;
