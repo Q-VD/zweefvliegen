@@ -10,7 +10,7 @@ function getMinutes(timeStr) {
 
 // voeg vlucht toe
 document.getElementById("add").addEventListener("click", async () => {
-  const flightNumber = document.getElementById("title").value.trim();
+  const flightNumber = document.getElementById("flightNumber").value.trim();
   const date = document.getElementById("date").value.trim();
   const startTime = document.getElementById("startTime").value.trim();
   const landingTime = document.getElementById("landingTime").value.trim();
