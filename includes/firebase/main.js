@@ -1,6 +1,6 @@
 //logbook
 import { db } from "./firebase.js";
-import {collection, addDoc, getDocs, doc, setDoc} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {collection, addDoc, getDocs, doc, setDoc, runTransaction} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 //functie voor string omzetten naar minuten
 function getMinutes(timeStr) {
@@ -10,7 +10,6 @@ function getMinutes(timeStr) {
 
 // voeg vlucht toe
 document.getElementById("add").addEventListener("click", async () => {
-  const flightNumber = document.getElementById("flightNumber").value.trim();
   const date = document.getElementById("date").value.trim();
   const startTime = document.getElementById("startTime").value.trim();
   const landingTime = document.getElementById("landingTime").value.trim();
@@ -26,36 +25,41 @@ document.getElementById("add").addEventListener("click", async () => {
     return;
   }
 
-  const docId = flightNumber;
-  const docRef = doc(db, "Logbook", docId);
+  const counterRef = dov(db, "Counters", "logbook");
 
-  let x = 0;
-  
-  await setDoc(docRef, {
-    flightNumber: flightNumber,
-    Date: date,
-    StartTime: startTime,
-    LandingTime: landingTime,
-    Duration: duration,
-    StartLocation: startLocation,
-    LandingLocation: landingLocation,
-    FrontSeat: frontSeat,
-    BackSeat: backSeat,
-    Remark: remark
+  await runTransaction(db, async (transaction) => {
+    const counterSnap = await transaction.get(counterRef);
+
+    let newId = 1;
+    if (counterSnap.exists()) {
+      newId = counterSnap.data().lastId +1;
+    }
+
+    //Update teller
+    transaction.set(counterRef, {lastId: newId});
+
+    //nieuw logbookdocument
+    const flightRef = doc(db, "Logbook", newId.toString());
+
+    transacation.set(flightRef, {
+      flightNumber: newId,
+      Date: date,
+      StartTime: startTime,
+      LandingTime: landingTime,
+      Duration: duration,
+      StartLocation: startLocation,
+      LandingLocation: landingLocation,
+      FrontSeat: frontSeat,
+      BackSeat: backSeat,
+      Remark: remark,
+      created: Date.now()
+    });
   });
 
   console.log("Vlucht toegevoegd");
 
   // invoervelden leegmaken
-  //document.getElementById("title").value = "";
-  document.getElementById("date").value = "";
-  document.getElementById("startTime").value = "";
-  document.getElementById("landingTime").value = "";
-  document.getElementById("startLocation").value = "";
-  document.getElementById("landingLocation").value = "";
-  document.getElementById("frontSeat").value = "";
-  document.getElementById("backSeat").value = "";
-  document.getElementById("remark").value = "";
+  document.querySelectorAll("input, textarea").forEach(el => el.value = "");
   
   loadFlights(); //vluchten lijst maken
 });
@@ -67,12 +71,15 @@ async function loadFlights() {
   const querySnapshot = await getDocs(collection(db, "Logbook"));
   querySnapshot.forEach((docSnap) => {
     const data = docSnap.data();
+    
     const btn = document.createElement("button");
-    btn.textContent = data.Title;
+    btn.textContent = data.flightNumber;
+    
     btn.onclick = () => {
       //open detailpagina met docId als query parameter
       window.location.href = `flight.html?docId=${docSnap.id}`;
     };
+    
     flightslist.appendChild(btn);
     flightslist.appendChild(document.createElement("br"));
   });
