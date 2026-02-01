@@ -13,6 +13,8 @@ if (docId) {
     const data = docSnap.data();
     document.getElementById("flightNumber").textContent = `Vluchtnummer ${data.flightNumber}`;
     document.getElementById("Date").textContent = data.Date;
+    document.getElementById("Calsing").textContent = data.Calsing;
+    document.getElementById("Type").textContent = data.Type;
     document.getElementById("StartTime").textContent = data.StartTime;
     document.getElementById("LandingTime").textContent = data.LandingTime;
     document.getElementById("Duration").textContent = data.Duration;
