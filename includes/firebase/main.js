@@ -11,6 +11,8 @@ function getMinutes(timeStr) {
 // voeg vlucht toe
 document.getElementById("add").addEventListener("click", async () => {
   const date = document.getElementById("date").value.trim();
+  const calsing = document.getElementById("calsing").value.trim();
+  const type = document.getElementById("type").value.trim();
   const startTime = document.getElementById("startTime").value.trim();
   const landingTime = document.getElementById("landingTime").value.trim();
   const duration = getMinutes(landingTime) - getMinutes(startTime);
@@ -44,6 +46,8 @@ document.getElementById("add").addEventListener("click", async () => {
     transaction.set(flightRef, {
       flightNumber: newId,
       Date: date,
+      Calsing: calsing,
+      Type: type,
       StartTime: startTime,
       LandingTime: landingTime,
       Duration: duration,
