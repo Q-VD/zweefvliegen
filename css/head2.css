@@ -1,0 +1,19 @@
+.top-nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.top-nav li {
+  /* flex-items hebben geen extra styling nodig om naast elkaar te staan */
+}
+
+.nav-button {
+  text-decoration: none; /*verwijdert onderstreeping*/
+  padding: 8px 12px; /* maak knoppen wat groter*/
+  background-color: #eee; /* optioneel, kleur van de knop*/
+  border-radius: 5px; /*optioneel, afgeronde hoeken*/
+  color: #333; /*tekst kleur*/
+}
