@@ -4,22 +4,51 @@
     <meta charset="utf-8">
     <title>Vlucht Zweefpiloot</title>
     <link rel="stylesheet" href="/zweefvliegen/css/style.css"/>
+    <link rel="stylesheet" href="/zweefvliegen/css/table.css"/>
   </head>
   <body data-title="Vlucht">
     <div id="header-placeholder"></div>
-
     <h1 id="flightNumber"></h1>
-    <p id="Date"></p>
-    <p id="Calsing"></p>
-    <p id="Type"></p>
-    <p id="StartTime"></p>
-    <p id="LandingTime"></p>
-    <p id="Duration"></p>
-    <p id="StartLocation"></p>
-    <p id="LandingLocation"></p>
-    <p id="FrontSeat"></p>
-    <p id="BackSeat"></p>
-    <p id="Remark"></p>
+
+    <table>
+      <!--  Hoofd gedeelte van de tabel  -->
+      <tr>
+        <th colspan="2">Datum</th>
+        <th rowspan="2">Toestel</th>
+        <th rowspan="3">Tijd</th>
+        <th rowspan="2">Locatie</th>
+        <th rowspan="2">Inzittende</th>
+        <th>Opmerking</th>
+      </tr>
+      <tr>
+        <!--  datum  -->
+        <th>immatriculatie</th>
+        <th>Type</th>
+        <th>Start</th>
+        <th>Landing</th>
+        <th>Duur</th>
+        <th>Start</th>
+        <th>Landing</th>
+        <th>Voorste zit</th>
+        <th>Achterste zit</th>
+        <!--  remark  -->
+      </tr>
+
+      <!--  Vlucht gegevens  -->
+      <tr>
+        <td id="Date"></td>
+        <td id="Calsing"></td>
+        <td id="Type"></td>
+        <td id="StartTime"></td>
+        <td id="LandingTime"></td>
+        <td id="Duration"></td>
+        <td id="StartLocation"></td>
+        <td id="LandingLocation"></td>
+        <td id="FrontSeat"></td>
+        <td id="BackSeat"></td>
+        <td id="Remark"><tdp>
+      </tr>
+    </table>
 
     <a href="logbook.html">Terug naar logbook</a>
     
