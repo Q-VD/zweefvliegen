@@ -25,7 +25,7 @@ document.getElementById("add").addEventListener("click", async () => {
     return;
   }
 
-  const counterRef = dov(db, "Counters", "logbook");
+  const counterRef = doc(db, "Counters", "logbook");
 
   await runTransaction(db, async (transaction) => {
     const counterSnap = await transaction.get(counterRef);
